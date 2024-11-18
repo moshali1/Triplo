@@ -1,0 +1,47 @@
+﻿<nav class="flex flex-1 flex-col">
+    <div class="flex flex-1 flex-col gap-y-2">
+        <NavLink href="" Match="NavLinkMatch.All" @onclick="() => OnNavLinkClicked(IsMobileView)">
+            <NavItem Icon="fa-gauge" Label="Dashboard" IsMobileView="IsMobileView" />
+        </NavLink>
+
+        <NavLink href="travelers" @onclick="() => OnNavLinkClicked(IsMobileView)">
+            <NavItem Icon="fa-users" Label="Travelers" IsMobileView="IsMobileView" />
+        </NavLink>
+
+        <NavLink href="groups" @onclick="() => OnNavLinkClicked(IsMobileView)">
+            <NavItem Icon="fa-people-group" Label="Groups" IsMobileView="IsMobileView" />
+        </NavLink>
+
+        <NavLink href="flights" @onclick="() => OnNavLinkClicked(IsMobileView)">
+            <NavItem Icon="fa-plane" Label="Flights" IsMobileView="IsMobileView" />
+        </NavLink>
+
+        <NavLink href="itineraries" @onclick="() => OnNavLinkClicked(IsMobileView)">
+            <NavItem Icon="fa-route" Label="Itineraries" IsMobileView="IsMobileView" />
+        </NavLink>
+
+        <NavLink href="reports" @onclick="() => OnNavLinkClicked(IsMobileView)">
+            <NavItem Icon="fa-chart-column" Label="Reports" IsMobileView="IsMobileView" />
+        </NavLink>
+
+        <div class="mt-auto">
+            <NavLink href="settings" @onclick="() => OnNavLinkClicked(IsMobileView)">
+                <NavItem Icon="fa-gear" Label="Settings" IsMobileView="IsMobileView" />
+            </NavLink>
+        </div>
+    </div>
+</nav>
+
+@code {
+    [Parameter] public EventCallback<bool> OnSidebarClose { get; set; }
+    [Parameter] public bool IsMobileView { get; set; }
+
+    private Task OnNavLinkClicked(bool isMobile)
+    {
+        if (isMobile)
+        {
+            return OnSidebarClose.InvokeAsync(true);
+        }
+        return Task.CompletedTask;
+    }
+}

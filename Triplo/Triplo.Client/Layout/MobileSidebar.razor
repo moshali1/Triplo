@@ -1,0 +1,68 @@
+﻿@if (isOpen)
+{
+    <div class="relative z-50 lg:hidden" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-gray-900/80 backdrop-blur-sm transition-all duration-300 @backdropStyles"></div>
+
+        <div class="fixed inset-0 flex" @onclick="Close">
+            <div class="relative mr-16 flex w-full max-w-[14rem] flex-1 transition-all duration-300 @offCanvasMenuStyles">
+                <button type="button" class="absolute right-4 top-4 rounded-lg p-1 text-gray-400 hover:text-white transition-opacity duration-300 @closeButtonStyles" @onclick="Close">
+                    <span class="sr-only">Close sidebar</span>
+                    <i class="fa-solid fa-xmark h-6 w-6"></i>
+                </button>
+
+                <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-indigo-900 p-4" @onclick:stopPropagation="true">
+                    <div class="flex h-16 items-center border-b border-indigo-800">
+                        <div class="flex items-center gap-2 text-white">
+                            <i class="fa-solid fa-layer-group text-2xl text-blue-400"></i>
+                            <span class="text-xl font-semibold">Triplo</span>
+                        </div>
+                    </div>
+                    <NavMenu OnSidebarClose="Close" IsMobileView="true" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public bool IsOpen { get; set; }
+    [Parameter] public EventCallback<bool> IsOpenChanged { get; set; }
+
+    private bool isOpen;
+    private string backdropStyles = "opacity-0";
+    private string offCanvasMenuStyles = "-translate-x-full";
+    private string closeButtonStyles = "opacity-0";
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (IsOpen != isOpen)
+        {
+            isOpen = IsOpen;
+            if (isOpen)
+            {
+                await Open();
+            }
+        }
+    }
+
+    private async Task Open()
+    {
+        await Task.Delay(1); 
+        backdropStyles = "opacity-100";
+        offCanvasMenuStyles = "translate-x-0";
+        closeButtonStyles = "opacity-100";
+        StateHasChanged();
+    }
+
+    private async Task Close()
+    {
+        closeButtonStyles = "opacity-0";
+        offCanvasMenuStyles = "-translate-x-full";
+        backdropStyles = "opacity-0";
+        StateHasChanged();
+
+        await Task.Delay(300); 
+        isOpen = false;
+        await IsOpenChanged.InvokeAsync(false);
+    }
+}

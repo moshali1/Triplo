@@ -1,0 +1,17 @@
+﻿::deep .nav-link {
+    text-decoration: none;
+}
+
+    ::deep .nav-link.active .nav-item {
+        background-color: rgb(55 48 163); /* indigo-900 */
+        color: white;
+    }
+
+::deep button {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}

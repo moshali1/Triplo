@@ -1,0 +1,156 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<div class="space-y-6">
+    <!-- Stats Section -->
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <!-- Total Travelers -->
+        <div class="rounded-lg bg-white p-4 shadow">
+            <div class="flex items-center gap-4">
+                <div class="rounded-lg bg-blue-100 p-3">
+                    <i class="fa-solid fa-users text-blue-600 text-xl"></i>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-600">Total Travelers</p>
+                    <div class="flex items-baseline gap-2">
+                        <p class="text-2xl font-semibold text-gray-900">248</p>
+                        <span class="text-sm text-green-600">
+                            <i class="fa-solid fa-arrow-up text-xs"></i> 12
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- In Transit -->
+        <div class="rounded-lg bg-white p-4 shadow">
+            <div class="flex items-center gap-4">
+                <div class="rounded-lg bg-amber-100 p-3">
+                    <i class="fa-solid fa-plane text-amber-600 text-xl"></i>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-600">In Transit</p>
+                    <div class="flex items-baseline gap-2">
+                        <p class="text-2xl font-semibold text-gray-900">45</p>
+                        <span class="text-sm text-gray-600">Travelers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- In Makkah/Medina -->
+        <div class="rounded-lg bg-white p-4 shadow">
+            <div class="flex items-center gap-4">
+                <div class="rounded-lg bg-green-100 p-3">
+                    <i class="fa-solid fa-kaaba text-green-600 text-xl"></i>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-600">In Holy Cities</p>
+                    <div class="flex items-baseline gap-2">
+                        <p class="text-2xl font-semibold text-gray-900">156</p>
+                        <span class="text-sm text-gray-600">63%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Returning Soon -->
+        <div class="rounded-lg bg-white p-4 shadow">
+            <div class="flex items-center gap-4">
+                <div class="rounded-lg bg-purple-100 p-3">
+                    <i class="fa-solid fa-plane-arrival text-purple-600 text-xl"></i>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-600">Returning Soon</p>
+                    <div class="flex items-baseline gap-2">
+                        <p class="text-2xl font-semibold text-gray-900">47</p>
+                        <span class="text-sm text-gray-600">Next 7d</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="grid gap-6 lg:grid-cols-12">
+        <!-- Active Flights -->
+        <div class="rounded-lg bg-white p-6 shadow lg:col-span-8">
+            <div class="mb-4 flex items-center justify-between">
+                <h2 class="text-lg font-medium text-gray-900">Active Flights</h2>
+                <button class="rounded-lg p-2 text-gray-400 hover:text-gray-600">
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                </button>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Flight Card -->
+                <div class="rounded-lg border border-gray-200 p-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <span class="text-lg font-medium">QR 708</span>
+                            <div class="flex items-center gap-2 text-sm text-gray-600">
+                                <span>MSP</span>
+                                <i class="fa-solid fa-arrow-right text-xs"></i>
+                                <span>DOH</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-800">On Time</span>
+                            <span class="text-sm text-gray-600">12 Travelers</span>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        <div class="h-2 w-full rounded-full bg-gray-200">
+                            <div class="h-2 rounded-full bg-indigo-600" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More flight cards... -->
+            </div>
+        </div>
+
+        <!-- Location Distribution -->
+        <div class="rounded-lg bg-white p-6 shadow lg:col-span-4">
+            <h2 class="mb-4 text-lg font-medium text-gray-900">Location Distribution</h2>
+            <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <span class="text-sm text-gray-600">United States</span>
+                    <span class="font-medium">45</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-sm text-gray-600">Dubai</span>
+                    <span class="font-medium">28</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-sm text-gray-600">Doha</span>
+                    <span class="font-medium">32</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-sm text-gray-600">Makkah</span>
+                    <span class="font-medium">89</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-sm text-gray-600">Medina</span>
+                    <span class="font-medium">54</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alerts Section -->
+    <div class="rounded-lg bg-white p-6 shadow">
+        <h2 class="mb-4 text-lg font-medium text-gray-900">Recent Alerts</h2>
+        <div class="space-y-4">
+            <div class="flex items-center gap-4 rounded-lg bg-red-50 p-4 text-red-800">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <span>Flight QR 724 (JFK-DOH) delayed by 2 hours</span>
+            </div>
+            <div class="flex items-center gap-4 rounded-lg bg-yellow-50 p-4 text-yellow-800">
+                <i class="fa-solid fa-circle-info"></i>
+                <span>Weather alert: Heavy fog expected at DXB</span>
+            </div>
+        </div>
+    </div>
+</div>
