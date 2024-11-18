@@ -1,3 +1,4 @@
+using Triplo;
 using Triplo.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+builder.AddApplicationServices();
+
 
 var app = builder.Build();
 

@@ -1,0 +1,1 @@
+﻿global using Triplo.Data.DataAccess;
